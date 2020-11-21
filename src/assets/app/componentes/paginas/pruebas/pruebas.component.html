@@ -1,0 +1,28 @@
+<!-- Interpolación de Strings -->
+<h1>{{ title }}</h1>
+
+<!-- Data Binding [(ngModel)] -->
+<input class="form-control" type="text" [(ngModel)]="nombreAnimal" />
+
+<!-- Event Click -->
+<button class="btn btn-primary" (click)="agregarAnimal()" >Agregar</button>
+
+<!-- Structural Directives https://angular.io/guide/built-in-directives -->
+
+<!-- ngFor -->
+<ol>
+  <!-- Me permite recorrer un arreglo y rendirezar un código HTML por cada uno de los elementos del arreglo -->
+  <li *ngFor="let animal of animales; index as i">
+    {{ animal }}
+    <button class="btn btn-danger" (click)="removerAnimal(i)">Remover</button>
+  </li>
+</ol>
+
+<!-- ngIf -->
+<div *ngIf="title === 'jeisson'">
+  <h1>Hola Jeisson</h1>
+</div>
+
+<!-- pipes https://angular.io/guide/pipes -->
+<h1>{{ 'saldo' | uppercase }}</h1>
+<h1>{{ 50000 | currency }}</h1>
