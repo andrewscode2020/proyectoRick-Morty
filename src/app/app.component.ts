@@ -21,9 +21,10 @@ export class AppComponent implements OnInit {
     this.servicioPersonajes.obtenerPersonajes() 
       .subscribe(
         (personajesConsultados) => {
+          // this.personajes = personajesConsultados
           // error1:
           // Type 'Personaje' is missing the following properties from type 'Personaje[]': length, pop, push, concat, and 26 more.
-          // this.personajes = personajesConsultados
+          
           this.personajes = (personajesConsultados as unknown as Personaje[])
           // error2:
           // Property 'results' does not exist on type 'Personaje[]'.
