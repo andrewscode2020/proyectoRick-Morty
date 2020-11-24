@@ -5,5 +5,5 @@ export interface Personaje {
 
 export interface Personaje {
     info: {};
-    result: String[];
+    results: Object[];
 }

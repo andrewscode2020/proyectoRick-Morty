@@ -8,7 +8,10 @@ import { Personaje } from './interfaces/personaje';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  personajes: Array<Personaje> = [];
+  personajes: Personaje = {
+    info: {},
+    results: []
+  };
 
   constructor(private servicioPersonajes: PersonajesService) { }
 
@@ -21,11 +24,11 @@ export class AppComponent implements OnInit {
     this.servicioPersonajes.obtenerPersonajes() 
       .subscribe(
         (personajesConsultados) => {
-          // this.personajes = personajesConsultados
+          this.personajes = personajesConsultados
           // error1:
           // Type 'Personaje' is missing the following properties from type 'Personaje[]': length, pop, push, concat, and 26 more.
-          
-          this.personajes = (personajesConsultados as unknown as Personaje[])
+
+          // this.personajes = (personajesConsultados as unknown as Personaje[])
           // error2:
           // Property 'results' does not exist on type 'Personaje[]'.
         },
